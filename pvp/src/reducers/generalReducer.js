@@ -1,0 +1,1 @@
+// Use this reducer for general functions -- logging in, getting user data, ect.
