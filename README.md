@@ -29,7 +29,6 @@ This is the template for the Product Vision Document that teams complete after t
     - More than 3 different Roles
     - MICROTRANSACTIONS!!!
     - Pull data from the DND API
-    - 
 
 - What do the top 3 similar apps do for their users?
 
@@ -53,9 +52,9 @@ This is the template for the Product Vision Document that teams complete after t
     - Mana - 50
     - Power - 250
 - Rogue
-    - Dagger Slash
-    - Poison Strike
-    - invisibility
+    - Dagger Slash - physical
+    - Poison Strike - magic
+    - invisibility - magic
     ---
     - Health - 100
     - Mana - 150
