@@ -1,13 +1,83 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+  font-family: 'Press Start 2P';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Press Start 2P Regular'), local('PressStart2P-Regular'), url(https://fonts.gstatic.com/s/pressstart2p/v8/e3t4euO8T-267oIAQAu6jDQyK0nS.ttf) format('truetype');
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@font-face {
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/robotomono/v11/L0xuDF4xlVMF-BfR8bXMIhJHg45mwgGEFl0_gPqPQw.ttf) format('truetype');
+}
+* {
+  font-family: "Roboto Mono", monospace;
+}
+html {
+  font-size: 62.5%;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Press Start 2P", cursive;
+}
+.signUpFormContainer form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.8rem;
+}
+.signUpFormContainer form .innerSignUpFormDiv label {
+  display: flex;
+  flex-direction: column;
+  margin: 3% 0;
+  font-size: 1.8rem;
+}
+.signUpFormContainer form .innerSignUpFormDiv label input {
+  margin-top: 1%;
+  border: 1px solid black;
+  border-radius: 8px;
+  width: 525px;
+  height: 35px;
+  outline: none;
+  appearance: none;
+}
+.signUpFormContainer form .innerSignUpFormDiv label input:focus {
+  outline: none;
+  border: 2px solid #3086C2;
+  border-radius: 8px;
+  border-color: #3086C2;
+}
+.signUpFormContainer form .innerSignUpFormDiv .loginOrSignUp {
+  display: flex;
+  align-items: center;
+  align-self: center;
+}
+.signUpFormContainer form .innerSignUpFormDiv .loginOrSignUp p {
+  font-size: 1.4rem;
+  margin-right: 2%;
+}
+.signUpFormContainer form .innerSignUpFormDiv .loginOrSignUp a {
+  font-size: 1.4rem;
+  color: #3086C2;
+  text-decoration: none;
+}
+.signUpFormContainer form .innerSignUpFormDiv .loginOrSignUp button {
+  background-color: #3086C2;
+  color: white;
+  font-size: 2.4rem;
+  width: 150px;
+  padding: 1.2% 0;
+  width: 200px;
+  border: none;
+  border-radius: 8px;
+  margin-right: 5%;
+}
+.signUpFormContainer form .innerSignUpFormDiv .loginOrSignUp button:hover {
+  background-color: #1F549B;
 }
