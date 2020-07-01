@@ -2,6 +2,10 @@
 
 This is the template for the Product Vision Document that teams complete after their initial icebreaker. The PVD is crucial to the planning phase and **is mandatory for all groups to complete and submit to their Project Lead before starting their project.**
 
+**LESS WATCH COMPILER**
+- CD into the styles folder and use 
+    - less-watch-compiler less css index.less
+
 # ☝️ Proposal
 
  --- 
