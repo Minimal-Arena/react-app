@@ -3,6 +3,7 @@
 const initialState = {
 	level: 1,
 	current_xp: 0,
+	stageNumber: "One",
 };
 
 export const gameReducer = (state = initialState, action) => {

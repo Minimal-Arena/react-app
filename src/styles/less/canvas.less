@@ -1,0 +1,43 @@
+.canvas {
+    width: 100%;
+    height: 80%;
+    font-size: 3rem;
+}
+
+.hud {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 2rem;
+    position: absolute;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.568);
+    width: 96vw;
+    color: white;
+    text-shadow: 0 0 1px black;
+}
+
+.One{
+    background-image: url(../../assets/backgrounds/stage1-export.png);
+}
+
+.stage {
+    height: 100vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    .enemy {
+        position: absolute;
+        right: 0;
+        bottom: -10%;
+    }
+
+    .char {
+        position: absolute;
+        left: 0;
+        bottom: -10%;
+    }
+}
