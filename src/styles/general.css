@@ -1,0 +1,28 @@
+@font-face {
+  font-family: 'Press Start 2P';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Press Start 2P Regular'), local('PressStart2P-Regular'), url(https://fonts.gstatic.com/s/pressstart2p/v8/e3t4euO8T-267oIAQAu6jDQyK0nS.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/robotomono/v11/L0xuDF4xlVMF-BfR8bXMIhJHg45mwgGEFl0_gPqPQw.ttf) format('truetype');
+}
+html {
+  font-size: 62.5%;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Press Start 2P", cursive;
+}
+* {
+  font-family: "Roboto Mono", monospace;
+}
