@@ -6,10 +6,12 @@ import Dashboard from "./components/dashboard/dashboard";
 import Login from "./components/login-signup/login";
 import Signup from "./components/login-signup/signup";
 import Canvas from "./components/game/canvas";
+import Nav from "./components/nav";
 
 function App() {
 	return (
 		<div className="App">
+			<Nav />
 			<Router>
 				<Route path="/signup">
 					<Signup />
