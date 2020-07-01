@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { registerUser } from "../../actions";
-import * as yup from 'yup'
-import SignupSchema from '../../validation/SignupSchema'
-import {useShowPassword} from '../../hooks/useShowPassword'
-import visable_icon from '../../icons/visable_icon.svg'
-import hidden_icon from '../../icons/hidden_icon.svg'
+import * as yup from 'yup';
+import SignupSchema from '../../validation/SignupSchema';
+import {useShowPassword} from '../../hooks/useShowPassword';
+import visable_icon from '../../icons/visable_icon.svg';
+import hidden_icon from '../../icons/hidden_icon.svg';
 
 const initialSignUpValues = {
   email: "",
@@ -137,7 +137,7 @@ const Signup = (props) => {
               value={signUpValues.passwordConfirm}
               onChange={handleChanges}
             />
-            <img className='iconStyle' onClick={ onClickConfirmHandle} src={confirmHidden ? visable_icon: hidden_icon}/>
+            <img className='iconStyle' onClick={ onClickConfirmHandle} src={confirmHidden ? visable_icon: hidden_icon} alt="" />
             </div>
           </label>
           
