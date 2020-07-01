@@ -1,4 +1,5 @@
 import React from "react";
+
 import "./styles/App.css";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Dashboard from "./components/dashboard/dashboard";
@@ -25,6 +26,7 @@ function App() {
 			</Router>
 		</div>
 	);
+
 }
 
 export default App;
