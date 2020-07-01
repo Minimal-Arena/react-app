@@ -1,14 +1,24 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useLevelUp } from "../../hooks/useLevelUp";
+import { increaseXP, levelUp } from "../../actions/gameActions";
+import { useEffect } from "react";
 
 const Canvas = props => {
     const level = useSelector(state => state.gameReducer);
-    const [threshold] = useLevelUp(level.level + 1)
+    const [threshold] = useLevelUp(level.level + 1);
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        if(level.current_xp >= threshold) {
+            dispatch(levelUp());
+        }
+    }, [level.current_xp])
 
     const addXP = (e) => {
         e.preventDefault();
-
+        dispatch(increaseXP(50));
     }
 
     return (
@@ -16,7 +26,9 @@ const Canvas = props => {
             {level.level}
             <p>{level.current_xp}</p>
             <p>{threshold}</p>
-            <button>Add XP</button>
+            <button
+            onClick={addXP}
+            >Add XP</button>
         </div>
     )
 }
