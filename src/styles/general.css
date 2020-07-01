@@ -12,6 +12,9 @@
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/robotomono/v11/L0xuDF4xlVMF-BfR8bXMIhJHg45mwgGEFl0_gPqPQw.ttf) format('truetype');
 }
+* {
+  font-family: "Roboto Mono", monospace;
+}
 html {
   font-size: 62.5%;
 }
@@ -22,7 +25,4 @@ h4,
 h5,
 h6 {
   font-family: "Press Start 2P", cursive;
-}
-* {
-  font-family: "Roboto Mono", monospace;
 }

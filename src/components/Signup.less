@@ -16,13 +16,25 @@
             display: flex;
             flex-direction: column;
             margin: 3% 0;
+            font-size: 1.8rem;
   
             input {
-                border-radius:6px;
-                width: 500px;
-                height: 30px;
+                margin-top: 1%;
+                border: 1px solid black;
+                border-radius:8px;
+                width: 525px;
+                height: 35px;
+                outline:none;
+                appearance: none;
+                &:focus{
+                    outline:none;
+                    border: 2px solid #3086C2;
+                    border-radius:8px; 
+                    border-color: #3086C2;
+                }
             }
-        }
+            }
+            
 
         .loginOrSignUp {
             display: flex;
@@ -42,12 +54,17 @@
             button {
                 background-color:#3086C2;
                 color: white;
-                font-size: 2rem ;
+                font-size: 2.4rem ;
                 width: 150px;
-                padding: 1% 0;
+                padding: 1.2% 0;
+                width: 200px;
                 border: none;
-                border-radius: 6px;
+                border-radius: 8px;
                 margin-right: 5%;
+
+                &:hover {
+                    background-color: #1F549B;
+                }
       
             }
         }
