@@ -11,23 +11,24 @@ const Canvas = props => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        if(level.current_xp >= threshold) {
+        if (level.current_xp >= threshold) {
             dispatch(levelUp());
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [level.current_xp])
 
     const addXP = (e) => {
         e.preventDefault();
-        dispatch(increaseXP(50));
+        dispatch(increaseXP(200));
     }
 
     return (
         <div className="canvas">
-            {level.level}
-            <p>{level.current_xp}</p>
-            <p>{threshold}</p>
+            Current Level: <h2>{level.level}</h2>
+            Current XP: <h2>{level.current_xp}</h2>
+            Next Level at: <h2>{threshold}</h2>
             <button
-            onClick={addXP}
+                onClick={addXP}
             >Add XP</button>
         </div>
     )
