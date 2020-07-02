@@ -198,6 +198,33 @@ nav a {
   height: 80%;
   font-size: 3rem;
 }
+.canvas .controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.8rem;
+  flex-direction: column;
+  position: absolute;
+  z-index: 1;
+  top: 30%;
+  left: 45%;
+}
+.canvas .controls button {
+  background-color: #1f549b;
+  color: white;
+  font-weight: bold;
+  border: none;
+  margin: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  box-shadow: black inset;
+  height: 40px;
+  width: 200px;
+}
+.canvas .controls button:hover {
+  background-color: #3086c2;
+  transition: 0.3s ease;
+}
 .hud {
   display: flex;
   justify-content: space-around;
@@ -210,6 +237,23 @@ nav a {
   width: 96vw;
   color: white;
   text-shadow: 0 0 1px black;
+  overflow: hidden;
+}
+.hud button {
+  background-color: #1f549b;
+  color: white;
+  font-weight: bold;
+  border: none;
+  margin: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  box-shadow: black inset;
+  height: 40px;
+  width: 200px;
+}
+.hud button:hover {
+  background-color: #3086c2;
+  transition: 0.3s ease;
 }
 .One {
   background-image: url(../../assets/backgrounds/stage1-export.png);
@@ -228,6 +272,15 @@ nav a {
 }
 .stage .char {
   position: absolute;
+  text-align: center;
   left: 0;
   bottom: -10%;
+}
+.stage .char .health {
+  color: #e65151;
+  text-shadow: 2px 2px 2px black;
+}
+.stage .healthE {
+  color: #288128;
+  text-shadow: 2px 2px 2px black;
 }
