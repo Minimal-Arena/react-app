@@ -40,25 +40,43 @@ This is the template for the Product Vision Document that teams complete after t
 ## Different Types of Roles 
 ### Base Skills
 - Wizard
-    - Fireball - magical    
+    - Fireball - magical
+        - Base Power: 100mp 
+        - Cost: 50mp  
     - Lightning - magical
+        - Base Power: 150mp 
+        - Cost: 100mp
     - Healing - magical
+        - Base Power: 20mp 
+        - Cost: 100mp
     ---
     - Health - 150
     - Mana - 250
     - Power - 50
 - Brute
     - Club Strike - physical
+        - Base Power: 100pp 
+        - Cost: 50pp
     - Curb Stomp - physical
+        - Base Power: 200pp
+        - Cost: 100pp
     - Rally - powerup strength -- physical
+        - Base Power: 100pp
+        - Cost: 50pp
     ---
     - Health - 250
     - Mana - 50
     - Power - 250
 - Rogue
     - Dagger Slash - physical
+        - Base Power: 50pp
+        - Cost: 50pp
     - Poison Strike - magic
+        - Base Power: 100mp 
+        - Cost: 100mp
     - invisibility - magic
+        - Base Power: 50mp 
+        - Cost: 100mp
     ---
     - Health - 100 
     - Mana - 150
