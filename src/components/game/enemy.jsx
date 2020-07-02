@@ -3,9 +3,10 @@ import React, { useState } from "react";
 import char from "../../assets/enemies/ratIdle-export.gif";
 import charDamaged from "../../assets/enemies/ratDamaged-export.gif";
 import charAttack from "../../assets/enemies/ratAttack-export.gif";
+import charDead from "../../assets/enemies/ratDead-export.gif";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { win, setEnemyTurn, switchTurn } from "../../actions/gameActions";
+import { win, setEnemyTurn, switchTurn, setEnemyDead, increaseXP } from "../../actions/gameActions";
 
 const Enemy = props => {
     const stats = useSelector(state => state.gameReducer.enemy);
@@ -19,16 +20,20 @@ const Enemy = props => {
             setAnimation(charDamaged);
         } else if (stats.isAttacking) {
             setAnimation(charAttack);
+        } else if (stats.isDead) {
+            setAnimation(charDead)
         } else {
             setAnimation(char);
         }
 
         if (stats.hp <= 0) {
+            dispatch(setEnemyDead());
+            dispatch(increaseXP(400));
             dispatch(win(20));
             dispatch(switchTurn(3));
         }
 
-    }, [stats.isDamaged, stats.isAttacking])
+    }, [stats.isDamaged, stats.isAttacking, stats.isDead])
 
     return (
         <div className="enemy">

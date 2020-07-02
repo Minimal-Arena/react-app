@@ -69,7 +69,6 @@ export const removeSkillState = (mana) => {
 }
 
 export const win = (xp) => {
-	increaseXP(xp);
 	return {
 		type: "WIN",
 		payload: xp
@@ -79,6 +78,13 @@ export const win = (xp) => {
 export const lose = () => {
 	return {
 		type: "LOSE",
+		payload: ""
+	}
+}
+
+export const setEnemyDead = () => {
+	return {
+		type: "ENEMY_DEFEATED",
 		payload: ""
 	}
 }

@@ -17,7 +17,6 @@ const PlayerInput = props => {
             }, 1000)
         }
 
-
     }, [turn])
 
     if (stats.isAttacking) {

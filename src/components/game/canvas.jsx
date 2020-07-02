@@ -21,7 +21,7 @@ const Canvas = props => {
             {
                 gameState.lose
                     ? <div className="lose modal OpenModal">
-                        <h2>You LoseS</h2>
+                        <h2>You Lose</h2>
                     </div>
                     : ""
             }

@@ -99,6 +99,14 @@ export const gameReducer = (state = initialState, action) => {
 					hp: state.enemy.hp - action.payload,
 				},
 			};
+		case "ENEMY_DEFEATED" : 
+		return {
+			...state,
+			enemy: {
+				...state.enemy,
+				isDead: true,
+			}
+		}
 		case "WIN":
 			return {
 				...state,
