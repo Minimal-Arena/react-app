@@ -82,3 +82,15 @@ export const gameReducer = (state = initialState, action) => {
 			};
 	}
 };
+
+export const skillsReducer = (state = initialState, action) => {
+	switch (action.type) {
+		default :
+			return state
+		case "HEALING" : 
+		return {
+			...state,
+			health: state.health + action.payload
+		}
+	}
+}

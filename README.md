@@ -47,7 +47,7 @@ This is the template for the Product Vision Document that teams complete after t
         - Base Power: 150mp 
         - Cost: 100mp
     - Healing - magical
-        - Base Power: 100mp 
+        - Base Power: 20mp 
         - Cost: 100mp
     ---
     - Health - 150
