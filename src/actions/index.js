@@ -1,12 +1,16 @@
 import axios from "axios";
 import history from "../history";
+import { Redirect } from "react-router";
+import React from 'react'
 
 const baseURL = "https://minimal-arena.herokuapp.com";
 /****** API Cases ******/
 
 /*Base Cases */
 export const REGISTER_USER = "REGISTER_USER";
+
 export const LOGIN_USER = "LOGIN_USER";
+
 
 /*Success Cases */
 
@@ -38,4 +42,5 @@ export const loginUser = (userInfo) => (dispatch) => {
     })
     .catch((err) => console.log(err))
     
+
 };

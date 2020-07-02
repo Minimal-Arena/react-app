@@ -1,7 +1,7 @@
 // Use this for game related functions -- keeping track of health, attack power, ect.
 
 const initialState = {
-	current_turn: 1,
+current_turn: 1,
 	isAttacking: false,
 	isDamaged: false,
 	level: 1,
