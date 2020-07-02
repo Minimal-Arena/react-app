@@ -337,6 +337,14 @@ nav a {
   color: #e65151;
   text-shadow: 2px 2px 2px black;
 }
+.stage .char .mana {
+  color: #4f4fc5;
+  text-shadow: 2px 2px 2px black;
+}
+.stage .char .power {
+  color: #dab85d;
+  text-shadow: 2px 2px 2px black;
+}
 .stage .healthE {
   color: #288128;
   text-shadow: 2px 2px 2px black;

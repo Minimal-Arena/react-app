@@ -19,16 +19,37 @@ export const hitEnemy = amount => {
 	};
 };
 
-export const attackSelected = () => {
+export const attackSelected = (mana) => {
 	return {
 		type: "IS_ATTACKING",
-		payload: "",
+		payload: mana,
 	};
 };
 
 export const removeDamageClass = () => {
 	return {
-		type: "REMOVE_DAMAGE",
+		type: "REMOVE_DAMAGE_ENEMY",
 		payload: "",
 	};
 };
+
+export const removeDamagePlayer = () => {
+	return {
+		type: "REMOVE_DAMAGE_PLAYER",
+		payload: "",
+	}
+}
+
+export const setEnemyTurn = (amount) => {
+	return {
+		type: "CPU_ATTACK",
+		payload: amount,
+	};
+};
+
+export const switchTurn = (turn) => {
+	return {
+		type: "SWITCH_TURN",
+		payload: turn,
+	}
+}
