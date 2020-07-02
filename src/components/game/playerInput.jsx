@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { hitEnemy } from "../../actions/gameActions";
+import { hitEnemy, attackSelected, removeDamageClass } from "../../actions/gameActions";
 import { useEffect } from "react";
 
 const PlayerInput = props => {
@@ -8,13 +8,22 @@ const PlayerInput = props => {
 
     const dispatch = useDispatch();
 
+    if(stats.isAttacking) {
+        setTimeout(() => {
+            dispatch(removeDamageClass());
+        }, 600);
+    }
+
     return (
         <div className="controls">
             <h2>Skills</h2>
             <button
                 onClick={
                     () => {
-                        dispatch(hitEnemy(50))
+                        dispatch(attackSelected());
+                        setTimeout(() => {
+                            dispatch(hitEnemy(50))
+                        }, 800)
                     }
                 }
             >Fire</button>
@@ -22,7 +31,10 @@ const PlayerInput = props => {
             <button
                 onClick={
                     () => {
-                        dispatch(hitEnemy(30))
+                        dispatch(attackSelected());
+                        setTimeout(() => {
+                            dispatch(hitEnemy(50))
+                        }, 800)
                     }
                 }
             >Lightning</button>
@@ -30,7 +42,10 @@ const PlayerInput = props => {
             <button
                 onClick={
                     () => {
-                        dispatch(hitEnemy(0))
+                        dispatch(attackSelected());
+                        setTimeout(() => {
+                            dispatch(hitEnemy(50))
+                        }, 800)
                     }
                 }
             >Heal</button>

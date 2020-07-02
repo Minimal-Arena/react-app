@@ -18,3 +18,17 @@ export const hitEnemy = amount => {
 		payload: amount,
 	};
 };
+
+export const attackSelected = () => {
+	return {
+		type: "IS_ATTACKING",
+		payload: "",
+	};
+};
+
+export const removeDamageClass = () => {
+	return {
+		type: "REMOVE_DAMAGE",
+		payload: "",
+	};
+};
