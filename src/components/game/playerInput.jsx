@@ -11,7 +11,7 @@ const PlayerInput = props => {
     if(stats.isAttacking) {
         setTimeout(() => {
             dispatch(removeDamageClass());
-        }, 600);
+        }, 1200);
     }
 
     return (
@@ -44,7 +44,7 @@ const PlayerInput = props => {
                     () => {
                         dispatch(attackSelected());
                         setTimeout(() => {
-                            dispatch(hitEnemy(50))
+                            dispatch(hitEnemy(0))
                         }, 800)
                     }
                 }

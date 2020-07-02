@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/accessible-emoji */
 import React, { useState } from "react";
 import char from "../../assets/enemies/ratIdle-export.gif";
+import charDamaged from "../../assets/enemies/ratDamaged-export.gif";
 import { useSelector } from "react-redux";
 
 const Enemy = props => {
@@ -9,7 +10,7 @@ const Enemy = props => {
     return (
         <div className="enemy">
             <h3 className={stats.isDamaged ? `healthE Damage` : "healthE"}>{stats.health}💀</h3>
-            <img src={char} alt="" className={`enemyAnim`} />
+            <img src={stats.isDamaged ? charDamaged : char} alt="" className={`enemyAnim`} />
         </div>
     )
 }
