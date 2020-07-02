@@ -9,6 +9,7 @@ import App from './App';
 
   const store = createStore(combineReducers, applyMiddleware(thunk))
   const rootElement =   document.getElementById('root');
+  
 
 ReactDOM.render(
   <Provider store={store} >
