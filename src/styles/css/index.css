@@ -144,31 +144,52 @@ nav a {
 .signUpFormContainer form .innerSignUpFormDiv label {
   display: flex;
   flex-direction: column;
-  margin: 3% 0;
+  margin-top: 3% 0;
   font-size: 1.8rem;
+  font-weight: 600;
 }
-.signUpFormContainer form .innerSignUpFormDiv label input {
+.signUpFormContainer form .innerSignUpFormDiv label .valid {
   margin-top: 1%;
   border: 1px solid black;
-  margin: 1px;
   border-radius: 8px;
-  width: 525px;
+  width: 500px;
   height: 35px;
   outline: none;
   appearance: none;
 }
-.signUpFormContainer form .innerSignUpFormDiv label input:focus {
-  margin: none;
-  margin-top: 1%;
+.signUpFormContainer form .innerSignUpFormDiv label .valid:focus {
   outline: none;
-  border: 2px solid #3086C2;
+  box-shadow: 0 0 3pt 1pt #3086c2;
   border-radius: 8px;
-  border-color: #3086C2;
+  border-color: #3086c2;
+}
+.signUpFormContainer form .innerSignUpFormDiv .notValid {
+  margin: 1% 0;
+  border: 1px solid black;
+  border-radius: 8px;
+  width: 500px;
+  height: 35px;
+  outline: none;
+  appearance: none;
+}
+.signUpFormContainer form .innerSignUpFormDiv .notValid:focus {
+  outline: none;
+  box-shadow: 0 0 3pt 1pt red;
+  border-radius: 8px;
+  border-color: red;
+}
+.signUpFormContainer form .innerSignUpFormDiv .error {
+  font-size: 1.2rem;
+  margin-top: 0;
+  font-weight: 600;
+  color: red;
 }
 .signUpFormContainer form .innerSignUpFormDiv .loginOrSignUp {
   display: flex;
   align-items: center;
   align-self: center;
+  font-weight: 600;
+  margin: 3% 0 0 0;
 }
 .signUpFormContainer form .innerSignUpFormDiv .loginOrSignUp p {
   font-size: 1.4rem;
@@ -176,22 +197,46 @@ nav a {
 }
 .signUpFormContainer form .innerSignUpFormDiv .loginOrSignUp a {
   font-size: 1.4rem;
-  color: #3086C2;
+  color: #3086c2;
   text-decoration: none;
 }
-.signUpFormContainer form .innerSignUpFormDiv .loginOrSignUp button {
-  background-color: #3086C2;
+.signUpFormContainer form .innerSignUpFormDiv .loginOrSignUp a:hover {
+  font-size: 1.5rem;
+}
+.signUpFormContainer form .innerSignUpFormDiv .loginOrSignUp .submitButton {
+  background-color: #3086c2;
   color: white;
   font-size: 2.4rem;
   width: 150px;
   padding: 1.2% 0;
-  width: 200px;
+  width: 180px;
   border: none;
   border-radius: 8px;
   margin-right: 5%;
 }
-.signUpFormContainer form .innerSignUpFormDiv .loginOrSignUp button:hover {
-  background-color: #1F549B;
+.signUpFormContainer form .innerSignUpFormDiv .loginOrSignUp .submitButton:hover {
+  background-color: #1f549b;
+  cursor: pointer;
+}
+.signUpFormContainer form .innerSignUpFormDiv .loginOrSignUp .disabledButton {
+  background-color: #1d4f72;
+  color: #2e2e2e;
+  font-size: 2.4rem;
+  width: 150px;
+  padding: 1.2% 0;
+  width: 180px;
+  border: none;
+  border-radius: 8px;
+  margin-right: 5%;
+}
+.signUpFormContainer form .passwordDiv {
+  display: flex;
+  align-items: center;
+  width: 650px;
+}
+.signUpFormContainer form .passwordDiv .iconStyle {
+  height: 30px;
+  margin-left: 2%;
 }
 .canvas {
   width: 100%;
