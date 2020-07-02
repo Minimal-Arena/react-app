@@ -94,6 +94,7 @@ const Signup = (props) => {
             Enter email
             <input
             className={inputClass ? 'valid' : 'notValid'}
+            
               type="text"
               name="email"
               value={signUpValues.email}
@@ -149,7 +150,7 @@ const Signup = (props) => {
             </button>
 
             <p>Already have an account?</p>
-            <a href="#">Login</a>
+            <a href="/">Login</a>
           </div>
         </div>
       </form>
