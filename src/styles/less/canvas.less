@@ -1,0 +1,94 @@
+.canvas {
+    width: 100%;
+    height: 80%;
+    font-size: 3rem;
+
+    
+    .controls {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.8rem;
+        flex-direction: column;
+        position: absolute;
+        z-index: 1;
+        top: 30%;
+        left: 45%;
+
+        button {
+            .btn();
+        }
+    }
+}
+
+.hud {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 2rem;
+    position: absolute;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.568);
+    width: 96vw;
+    color: white;
+    text-shadow: 0 0 1px black;
+    overflow: hidden;
+
+    button {
+        .btn();
+    }
+}
+
+.One{
+    background-image: url(../../assets/backgrounds/stage1-export.png);
+}
+
+.stage {
+    height: 100vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    .enemy {
+        position: absolute;
+        right: 0;
+        bottom: -10%;
+    }
+
+    .char {
+        position: absolute;
+        text-align: center;
+        left: 0;
+        bottom: -10%;
+
+        .health {
+            color: rgb(230, 81, 81);
+            text-shadow: 2px 2px 2px black;
+        }
+
+        .mana {
+            color: rgb(79, 79, 197);
+            text-shadow: 2px 2px 2px black;
+        }
+        .power {
+            color: rgb(218, 184, 93);
+            text-shadow: 2px 2px 2px black;
+        }
+    }
+
+    .healthE {
+        color: rgb(40, 129, 40);
+        text-shadow: 2px 2px 2px black;
+    }
+
+    .Damage {
+        color: white;
+        animation-name: shake;  
+        animation-duration: 400ms;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-in;
+      }
+}

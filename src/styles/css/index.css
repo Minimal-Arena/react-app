@@ -113,13 +113,42 @@ h5,
 h6 {
   font-family: "Press Start 2P", cursive;
 }
-.signUpFormContainer {
+@keyframes shake {
+  30% {
+    transform: translateY(55px);
+  }
+  70% {
+    transform: translateY(-55px);
+    color: black;
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+nav {
+  background-color: #2f364d;
+  top: 0;
+  padding: 30px;
+  margin: 0;
+  height: 100%;
+  width: 95vw;
+  color: white;
   display: flex;
-  flex-direction: column;
+  justify-content: space-evenly;
   align-items: center;
+  font-size: 1.4rem;
+}
+nav .logo {
+  font-size: 2.2rem;
+}
+nav a {
+  color: white;
+  font-family: "Press Start 2P", cursive;
+  text-decoration: none;
+  margin: 10px;
 }
 .signUpFormContainer form {
-  margin-top: 5%;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -222,25 +251,111 @@ h6 {
   height: 30px;
   margin-left: 2%;
 }
-nav {
-  background-color: #2f364d;
-  top: 0;
-  padding: 30px;
-  margin: 0;
-  height: 100%;
+
+.canvas {
   width: 100%;
-  color: white;
+  height: 80%;
+  font-size: 3rem;
+}
+.canvas .controls {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
-  font-size: 1.4rem;
+  font-size: 1.8rem;
+  flex-direction: column;
+  position: absolute;
+  z-index: 1;
+  top: 30%;
+  left: 45%;
 }
-nav .logo {
-  font-size: 2.2rem;
-}
-nav a {
+.canvas .controls button {
+  background-color: #1f549b;
   color: white;
-  font-family: "Press Start 2P", cursive;
-  text-decoration: none;
-  margin: 10px;
+  font-weight: bold;
+  border: none;
+  margin: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  box-shadow: black inset;
+  height: 40px;
+  width: 200px;
+}
+.canvas .controls button:hover {
+  background-color: #3086c2;
+  transition: 0.3s ease;
+}
+.hud {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 2rem;
+  position: absolute;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.568);
+  width: 96vw;
+  color: white;
+  text-shadow: 0 0 1px black;
+  overflow: hidden;
+}
+.hud button {
+  background-color: #1f549b;
+  color: white;
+  font-weight: bold;
+  border: none;
+  margin: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  box-shadow: black inset;
+  height: 40px;
+  width: 200px;
+}
+.hud button:hover {
+  background-color: #3086c2;
+  transition: 0.3s ease;
+}
+.One {
+  background-image: url(../../assets/backgrounds/stage1-export.png);
+}
+.stage {
+  height: 100vh;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.stage .enemy {
+  position: absolute;
+  right: 0;
+  bottom: -10%;
+}
+.stage .char {
+  position: absolute;
+  text-align: center;
+  left: 0;
+  bottom: -10%;
+}
+.stage .char .health {
+  color: #e65151;
+  text-shadow: 2px 2px 2px black;
+}
+.stage .char .mana {
+  color: #4f4fc5;
+  text-shadow: 2px 2px 2px black;
+}
+.stage .char .power {
+  color: #dab85d;
+  text-shadow: 2px 2px 2px black;
+}
+.stage .healthE {
+  color: #288128;
+  text-shadow: 2px 2px 2px black;
+}
+.stage .Damage {
+  color: white;
+  animation-name: shake;
+  animation-duration: 400ms;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in;r
 }

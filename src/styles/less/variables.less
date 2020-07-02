@@ -3,3 +3,25 @@
 
 // Colors
 @mutedBlue: #2f364d;
+@mediumBlue: #1f549b;
+@brightBlue: #3086c2;
+@gold: #dab020;
+
+.btn() {
+    background-color: @mediumBlue;
+    color: white;
+    font-weight: bold;
+    border: none;
+    margin: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    box-shadow: black inset;
+    height: 40px;
+    width: 200px;
+
+    &:hover {
+        background-color: @brightBlue;
+        transition: 0.3s ease;
+    }
+}
+

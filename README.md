@@ -40,17 +40,17 @@ This is the template for the Product Vision Document that teams complete after t
 ## Different Types of Roles 
 ### Base Skills
 - Wizard
-    - Fireball
-    - Lightning
-    - Healing
+    - Fireball - magical    
+    - Lightning - magical
+    - Healing - magical
     ---
     - Health - 150
     - Mana - 250
     - Power - 50
 - Brute
-    - Club Strike
-    - Curb Stomp
-    - Rally - powerup strength
+    - Club Strike - physical
+    - Curb Stomp - physical
+    - Rally - powerup strength -- physical
     ---
     - Health - 250
     - Mana - 50
@@ -60,7 +60,7 @@ This is the template for the Product Vision Document that teams complete after t
     - Poison Strike - magic
     - invisibility - magic
     ---
-    - Health - 100
+    - Health - 100 
     - Mana - 150
     - Power - 150
 
