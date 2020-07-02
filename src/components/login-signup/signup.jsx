@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+
 import { useDispatch } from "react-redux";
 import { registerUser } from "../../actions";
 import * as yup from 'yup';
@@ -52,9 +53,10 @@ const Signup = (props) => {
 
     setSignUpValues({ ...signUpValues, [name]: value });
   };
-
+  
   const handleSubmit = (e) => {
     e.preventDefault();
+    
     const createdUser = {
       email: signUpValues.email,
       username: signUpValues.username,
@@ -64,6 +66,7 @@ const Signup = (props) => {
     dispatch(registerUser(createdUser));
     setSignUpValues(initialSignUpValues);
     setButtonDisabled(true)
+
   };
 
   //function for checking if password and confirm password are the same
@@ -142,7 +145,7 @@ const Signup = (props) => {
           </label>
           
 
-          {buttonDisabled ? <p className={'error'}>Error message passwords need to match</p> : null}
+          {buttonDisabled ? <p className={'error'}> passwords need to match</p> : null}
           <div className="loginOrSignUp">
             <button className={ isValid ? 'disabledButton' : 'submitButton'} disabled={buttonDisabled} onClick={handleSubmit}>
               Sign up

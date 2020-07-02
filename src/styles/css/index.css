@@ -148,6 +148,7 @@ nav a {
   margin: 10px;
 }
 .signUpFormContainer form {
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -250,6 +251,7 @@ nav a {
   height: 30px;
   margin-left: 2%;
 }
+
 .canvas {
   width: 100%;
   height: 80%;
@@ -355,5 +357,5 @@ nav a {
   animation-duration: 400ms;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
-  animation-timing-function: ease-in;
+  animation-timing-function: ease-in;r
 }
