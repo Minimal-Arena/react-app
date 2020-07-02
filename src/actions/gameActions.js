@@ -53,3 +53,32 @@ export const switchTurn = (turn) => {
 		payload: turn,
 	}
 }
+
+export const healPlayer = (basePower) => {
+	return {
+		type: "HEALING",
+		payload: basePower,
+	}
+}
+
+export const removeSkillState = (mana) => {
+	return {
+		type: "REMOVE_SKILL_STATE",
+		payload: mana,
+	}
+}
+
+export const win = (xp) => {
+	increaseXP(xp);
+	return {
+		type: "WIN",
+		payload: xp
+	}
+}
+
+export const lose = () => {
+	return {
+		type: "LOSE",
+		payload: ""
+	}
+}

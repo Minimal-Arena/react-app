@@ -1,11 +1,11 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { hitEnemy, attackSelected, removeDamageClass, setEnemyTurn, removeDamagePlayer, switchTurn } from "../../actions/gameActions";
+import { hitEnemy, attackSelected, removeDamageClass, setEnemyTurn, removeDamagePlayer, switchTurn, healPlayer, removeSkillState } from "../../actions/gameActions";
 import { useEffect } from "react";
 
 const PlayerInput = props => {
     const stats = useSelector(state => state.gameReducer);
-    const turn = useSelector(state => state.gameReducer.current_turn)
+    const turn = useSelector(state => state.gameReducer.current_turn);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -16,6 +16,8 @@ const PlayerInput = props => {
                 dispatch(switchTurn(1));
             }, 1000)
         }
+
+
     }, [turn])
 
     if (stats.isAttacking) {
@@ -54,9 +56,9 @@ const PlayerInput = props => {
                 <button
                     onClick={
                         () => {
-                            dispatch(attackSelected(20));
+                            dispatch(healPlayer(20));
                             setTimeout(() => {
-                                dispatch(hitEnemy(0))
+                                dispatch(removeSkillState(100));
                             }, 800)
                         }
                     }

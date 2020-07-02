@@ -3,22 +3,29 @@ import React, { useEffect, useState } from "react";
 import char from "../../assets/Wizard/WizardIdle-export.gif";
 import charAttacking from "../../assets/Wizard/WizardAttackSingleLoop.gif";
 import charDamage from "../../assets/Wizard/wizardDamaged-export.gif";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { lose } from "../../actions/gameActions";
 
 const Character = props => {
     const stats = useSelector(state => state.gameReducer);
-    const isAttacking = useSelector(state => state.gameReducer.isAttacking)
     const [animation, setAnimation] = useState(char);
+
+    const dispatch = useDispatch();
 
     useEffect(() => {
         if (stats.isDamaged) {
             setAnimation(charDamage);
-        } else if (stats.isAttacking) {
+        } else if (stats.isAttacking || stats.isUsingSkill) {
             setAnimation(charAttacking);
         } else {
             setAnimation(char);
         }
-    }, [stats.isDamaged, stats.isAttacking])
+
+        if (stats.health <= 0) {
+            dispatch(lose());
+        }
+
+    }, [stats.isDamaged, stats.isAttacking, stats.isUsingSkill])
 
     return (
         <div className="char">

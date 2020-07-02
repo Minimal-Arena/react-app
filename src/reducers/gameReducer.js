@@ -4,6 +4,7 @@ const initialState = {
 	current_turn: 1,
 	isAttacking: false,
 	isDamaged: false,
+	isUsingSkill: false,
 	level: 1,
 	current_xp: 0,
 	stageNumber: "One",
@@ -15,6 +16,12 @@ const initialState = {
 		hp: 100,
 		isAttacking: false,
 		isDamaged: false,
+		isDead: false,
+	},
+
+	game: {
+		win: false,
+		lose: false,
 	},
 };
 
@@ -32,11 +39,11 @@ export const gameReducer = (state = initialState, action) => {
 				...state,
 				current_xp: state.current_xp + action.payload,
 			};
-		case "SWITCH_TURN": 
-		return {
-			...state,
-			current_turn: action.payload,
-		}
+		case "SWITCH_TURN":
+			return {
+				...state,
+				current_turn: action.payload,
+			};
 		case "IS_ATTACKING":
 			return {
 				...state,
@@ -70,6 +77,18 @@ export const gameReducer = (state = initialState, action) => {
 					isDamaged: false,
 				},
 			};
+		case "REMOVE_SKILL_STATE":
+			return {
+				...state,
+				mana: state.mana - action.payload,
+				isUsingSkill: false,
+			};
+		case "HEALING":
+			return {
+				...state,
+				isUsingSkill: true,
+				health: state.health + action.payload * Math.round(state.level * 2),
+			};
 		case "ENEMY_HIT":
 			return {
 				...state,
@@ -80,17 +99,21 @@ export const gameReducer = (state = initialState, action) => {
 					hp: state.enemy.hp - action.payload,
 				},
 			};
+		case "WIN":
+			return {
+				...state,
+				game: {
+					...state.game,
+					win: true,
+				},
+			};
+		case "LOSE":
+			return {
+				...state,
+				game: {
+					...state.game,
+					lose: true,
+				},
+			};
 	}
 };
-
-export const skillsReducer = (state = initialState, action) => {
-	switch (action.type) {
-		default :
-			return state
-		case "HEALING" : 
-		return {
-			...state,
-			health: state.health + action.payload
-		}
-	}
-}

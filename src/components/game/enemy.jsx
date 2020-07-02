@@ -3,13 +3,16 @@ import React, { useState } from "react";
 import char from "../../assets/enemies/ratIdle-export.gif";
 import charDamaged from "../../assets/enemies/ratDamaged-export.gif";
 import charAttack from "../../assets/enemies/ratAttack-export.gif";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
+import { win, setEnemyTurn, switchTurn } from "../../actions/gameActions";
 
 const Enemy = props => {
     const stats = useSelector(state => state.gameReducer.enemy);
-
+    const turn = useSelector(state => state.gameReducer.current_turn)
     const [animation, setAnimation] = useState(char);
+
+    const dispatch = useDispatch();
 
     useEffect(() => {
         if (stats.isDamaged) {
@@ -19,6 +22,12 @@ const Enemy = props => {
         } else {
             setAnimation(char);
         }
+
+        if (stats.hp <= 0) {
+            dispatch(win(20));
+            dispatch(switchTurn(3));
+        }
+
     }, [stats.isDamaged, stats.isAttacking])
 
     return (
