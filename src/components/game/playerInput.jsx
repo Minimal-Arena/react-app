@@ -11,7 +11,7 @@ const PlayerInput = props => {
     if(stats.isAttacking) {
         setTimeout(() => {
             dispatch(removeDamageClass());
-        }, 1200);
+        }, 1800);
     }
 
     return (
