@@ -1,34 +1,35 @@
 import React from "react";
 
 import "./styles/css/index.css";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Router, Route, Link } from "react-router-dom";
 import Dashboard from "./components/dashboard/dashboard";
 import Login from "./components/login-signup/login";
 import Signup from "./components/login-signup/signup";
 import Canvas from "./components/game/canvas";
 import Nav from "./components/nav";
+import history from "./history";
+import PrivateRoute from "./utils/PrivateRoute";
 
 function App() {
-	return (
-		<div className="App">
-			<Nav />
-			<Router>
-				<Route path="/signup">
-					<Signup />
-				</Route>
-				<Route path="/" exact>
-					<Login />
-				</Route>
-				<Route path="/dashboard">
-					<Dashboard />
-				</Route>
-				<Route path="/game">
-					<Canvas />
-				</Route>
-			</Router>
-		</div>
-	);
-
+  return (
+    <div className="App">
+      <Nav />
+      <Router history={history}>
+        <Route path="/signup">
+          <Signup />
+        </Route>
+        <Route path="/" exact>
+          <Login />
+        </Route>
+        <PrivateRoute
+          exact
+          path="/dashboard"
+          component={Dashboard}
+        ></PrivateRoute>
+        <PrivateRoute exact path="/game" component={Canvas}></PrivateRoute>
+      </Router>
+    </div>
+  );
 }
 
 export default App;
