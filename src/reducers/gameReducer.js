@@ -1,14 +1,20 @@
 // Use this for game related functions -- keeping track of health, attack power, ect.
 
 const initialState = {
+	current_turn: 1,
+	isAttacking: false,
+	isDamaged: false,
 	level: 1,
 	current_xp: 0,
 	stageNumber: "One",
 	health: 100,
 	mana: 250,
+	power: 50,
 
 	enemy: {
-		health: 100,
+		hp: 100,
+		isAttacking: false,
+		isDamaged: false,
 	},
 };
 
@@ -26,12 +32,52 @@ export const gameReducer = (state = initialState, action) => {
 				...state,
 				current_xp: state.current_xp + action.payload,
 			};
-		case "ENEMY_HIT":
+		case "SWITCH_TURN": 
+		return {
+			...state,
+			current_turn: action.payload,
+		}
+		case "IS_ATTACKING":
+			return {
+				...state,
+				isAttacking: true,
+				mana: state.mana - action.payload,
+			};
+		case "CPU_ATTACK":
+			return {
+				...state,
+				health: state.health - action.payload,
+				isDamaged: true,
+				enemy: {
+					...state.enemy,
+					isAttacking: true,
+				},
+			};
+		case "REMOVE_DAMAGE_PLAYER":
+			return {
+				...state,
+				isDamaged: false,
+				enemy: {
+					...state.enemy,
+					isAttacking: false,
+				},
+			};
+		case "REMOVE_DAMAGE_ENEMY":
 			return {
 				...state,
 				enemy: {
 					...state.enemy,
-					health: state.health - action.payload,
+					isDamaged: false,
+				},
+			};
+		case "ENEMY_HIT":
+			return {
+				...state,
+				isAttacking: false,
+				enemy: {
+					...state.enemy,
+					isDamaged: true,
+					hp: state.enemy.hp - action.payload,
 				},
 			};
 	}
