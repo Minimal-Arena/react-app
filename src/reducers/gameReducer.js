@@ -3,6 +3,13 @@
 const initialState = {
 	level: 1,
 	current_xp: 0,
+	stageNumber: "One",
+	health: 100,
+	mana: 250,
+
+	enemy: {
+		health: 100,
+	},
 };
 
 export const gameReducer = (state = initialState, action) => {
@@ -18,6 +25,14 @@ export const gameReducer = (state = initialState, action) => {
 			return {
 				...state,
 				current_xp: state.current_xp + action.payload,
+			};
+		case "ENEMY_HIT":
+			return {
+				...state,
+				enemy: {
+					...state.enemy,
+					health: state.health - action.payload,
+				},
 			};
 	}
 };
