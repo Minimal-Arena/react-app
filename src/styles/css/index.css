@@ -104,6 +104,7 @@ video {
 }
 html {
   font-size: 62.5%;
+  background: #f0f0f0;
 }
 h1,
 h2,
@@ -139,7 +140,7 @@ nav {
   padding: 30px;
   margin: 0;
   height: 100%;
-  width: 95vw;
+  width: 97%;
   color: white;
   display: flex;
   justify-content: space-evenly;
@@ -148,6 +149,7 @@ nav {
 }
 nav .logo {
   font-size: 2.2rem;
+  font-weight: 600;
 }
 nav a {
   color: white;
@@ -161,11 +163,7 @@ nav a {
   align-items: center;
 }
 .signUpFormContainer form {
-
-
   margin-top: 5%;
-
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -271,7 +269,6 @@ nav a {
   height: 30px;
   margin-left: 2%;
 }
-
 .loginFormContainer {
   display: flex;
   justify-content: center;
@@ -382,8 +379,194 @@ nav a {
   height: 30px;
   margin-left: 2%;
 }
-
-
+.dashboard {
+  display: flex;
+  background-color: #f0f0f0;
+  height: 100%;
+  width: 100%;
+  justify-content: space-around;
+}
+.dashboard .currentPartyDiv {
+  margin: 3.3% 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 50%;
+  border: 1px solid black;
+  border-radius: 7px;
+  padding: 0 1%;
+  background: white;
+}
+.dashboard .currentPartyDiv h2 {
+  align-self: flex-start;
+  font-size: 1.5rem;
+  margin: 2% 0;
+}
+.dashboard .playerStatsDiv {
+  margin: 3% 3% 1% 1%;
+  flex-direction: row;
+}
+.dashboard .friendsDiv {
+  margin: 3.3% 4%;
+  border: 1px solid black;
+  width: 15%;
+  padding: 0.5% 1%;
+  border-radius: 7px;
+  background: white;
+  height: 75%;
+}
+.dashboard .friendsDiv h2 {
+  margin-top: 5%;
+  margin-bottom: 10%;
+  font-size: 1.2rem;
+}
+.dashboard .friendsDiv .onlineFriends {
+  margin-bottom: 1%;
+}
+.dashboard .friendsDiv .offlineFriends {
+  font-size: 1.2rem;
+  margin: 1% 0 0 0;
+}
+.playerCardContainer {
+  display: flex;
+  margin: 2%;
+  background: white;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 1%;
+}
+.playerCardContainer .playerCardDiv {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 2% auto;
+  width: 100%;
+  align-items: center;
+}
+.playerCardContainer .playerCardDiv h6 {
+  font-size: 1.4rem;
+  margin: 2% 1% 5% 0;
+  width: 200px;
+}
+.playerCardContainer .playerCardDiv .playerCardImg {
+  display: flex;
+  margin-bottom: 5%;
+  width: 100%;
+  justify-content: center;
+}
+.playerCardContainer .playerCardDiv .playerCardImg img {
+  width: 228px;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 20px;
+  border: 2px solid #d19900;
+}
+.playerCardContainer .playerCardDiv .playerInfoDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.playerCardContainer .playerCardDiv .playerInfoDiv p {
+  font-size: 1.8rem;
+  margin: 3% 5%;
+}
+.playerCardContainer .playerCardDiv .playerInfoDiv p span {
+  font-weight: 600;
+}
+.playerCardContainer .playerCardDiv .playerInfoDiv .healthInfo {
+  width: 300px;
+  display: flex;
+  align-items: center;
+}
+.playerCardContainer .playerCardDiv .playerInfoDiv .healthInfo p {
+  margin: 2% 5%;
+}
+.partyCardContainer {
+  display: flex;
+  align-self: center;
+  justify-content: space-evenly;
+  align-items: center;
+  border: 1px solid black;
+  width: 100%;
+  border-radius: 5px;
+  margin: 1.5% 0;
+  background: #f0f0f0;
+}
+.partyCardContainer img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  border: 2px solid #d19900;
+}
+.partyCardContainer .data {
+  margin: 2%;
+  display: flex;
+  flex-direction: column;
+}
+.partyCardContainer .data p {
+  font-size: 1.8rem;
+  font-weight: 600;
+  line-height: 4rem;
+}
+.partyListDiv {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.friendCardContainer {
+  margin: 10% 0;
+}
+.friendCardContainer .friendCardDiv {
+  display: flex;
+  position: relative;
+  align-items: center;
+  margin: 10% 0;
+}
+.friendCardContainer .friendCardDiv .friendImage {
+  width: 36px;
+  height: 36px;
+  border-radius: 50px;
+}
+.friendCardContainer .friendCardDiv p {
+  margin-left: 8%;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+.friendCardContainer .friendCardDiv .statusIcon {
+  height: 10px;
+  margin: 5% 0 0 8%;
+  position: absolute;
+  width: 10px;
+  border-radius: 50px;
+  background-color: #36AB65;
+}
+.friendCardContainer .friendCardDiv .statusIconOffline {
+  height: 10px;
+  margin: 5% 0 0 8%;
+  position: absolute;
+  width: 10px;
+  border-radius: 50px;
+  background-color: #ab3636;
+}
+.progressBar {
+  position: relative;
+  height: 17px;
+  width: 125px;
+  border: 1px solid #aed39b;
+  background: #aed39b;
+}
+.filler {
+  background: #47ca26;
+  height: 100%;
+  border-radius: inherit;
+  transition: width 0.2s ease-in;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
 .canvas {
   width: 100%;
   height: 80%;
