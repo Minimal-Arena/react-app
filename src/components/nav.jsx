@@ -5,7 +5,7 @@ const Nav = props => {
         <nav>
             <p className="logo">MINIMAL ARENA</p>
             <div className="links">
-                <a href="/">Home</a>
+                <a href="/dashboard">Home</a>
                 <a href="/about">About</a>
                 <a href="/">Login</a>
                 <a href="/signup">Signup</a>

@@ -1,6 +1,6 @@
 import axios from "axios";
 import history from "../history";
-import { Redirect } from "react-router";
+import axiosWithAuth from '../utils/axiosWithAuth'
 import React from 'react'
 
 const baseURL = "https://minimal-arena.herokuapp.com";
@@ -14,6 +14,8 @@ export const LOGIN_USER = "LOGIN_USER";
 
 /*Success Cases */
 
+export const GET_USER_PLAYER_CARD = 'GET_USER_PLAYER_CARD'
+
 /*Fail Cases */
 
 /****** API Actions ******/
@@ -25,6 +27,8 @@ export const registerUser = (newUser) => (dispatch) => {
     .post(`${baseURL}/api/auth/register`, newUser)
     .then((res) => {
         window.localStorage.setItem('token', res.data.token)
+        window.localStorage.setItem('username', res.data.username)
+        window.localStorage.setItem('user_id', res.data.id)
       history.push("/dashboard");
       console.log(res);
     })
@@ -35,12 +39,25 @@ export const loginUser = (userInfo) => (dispatch) => {
   axios
     .post(`${baseURL}/api/auth/login`, userInfo)
     .then((res) => {
+        window.localStorage.setItem('username', res.data.user.username)
+        window.localStorage.setItem('user_id', res.data.user.id)
         window.localStorage.setItem('token', res.data.token)
       console.log(res);
-      setTimeout(history.push("/dashboard"), 2000)
+      setTimeout(history.push("/dashboard"), 1500)
       
     })
     .catch((err) => console.log(err))
     
 
 };
+
+export const getPlayerCardData = (user_id) => (dispatch) => {
+
+    axiosWithAuth().get(`/api/game/character/${user_id}`)
+    .then(res => {
+      dispatch({type: GET_USER_PLAYER_CARD, payload: res.data})
+      
+      console.log(res)})
+
+
+}
