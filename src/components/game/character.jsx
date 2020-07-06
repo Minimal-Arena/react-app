@@ -1,8 +1,9 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/accessible-emoji */
 import React, { useEffect, useState } from "react";
-import char from "../../assets/Wizard/WizardIdle-export.gif";
-import charAttacking from "../../assets/Wizard/WizardAttackSingleLoop.gif";
-import charDamage from "../../assets/Wizard/wizardDamaged-export.gif";
+import char from "../../assets/Wizard/idle.gif";
+import charAttacking from "../../assets/Wizard/attack.gif";
+import charDamage from "../../assets/Wizard/damaged.gif";
 import { useSelector, useDispatch } from "react-redux";
 import { lose } from "../../actions/gameActions";
 
