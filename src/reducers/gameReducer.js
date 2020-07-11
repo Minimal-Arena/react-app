@@ -12,6 +12,10 @@ current_turn: 1,
 	mana: 250,
 	power: 50,
 
+	stage: {
+
+	},
+
 	enemy: {
 		hp: 100,
 		isAttacking: false,
