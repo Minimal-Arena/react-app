@@ -11,7 +11,7 @@ const PartyCard = ({playerData, key,  draggable, onDragStart, onDragOver, onDrop
 //   );
   return (
     
-    <div className='partyCardContainer ' draggable={true}>
+    <div className='partyCardContainer '>
       <img src={'https://i.pravatar.cc'}/>
       
       <div className='data'>
