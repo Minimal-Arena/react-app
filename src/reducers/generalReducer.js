@@ -1,9 +1,11 @@
 // Use this reducer for general functions -- logging in, getting user data, ect.
 
-import { GET_USER_PLAYER_CARD } from "../actions";
+import { GET_USER_PLAYER_CARD, IS_LOADING, NOT_LOADING, GET_CLASSES } from "../actions";
 
 const initialGeneralState = {
+  isLoading:false,
   loggedin: false,
+  allClasses: [],
   friends: [{
     username:'Vippsi',
     userStatus: true
@@ -187,6 +189,16 @@ const initialGeneralState = {
 };
 export const generalReducer = (state = initialGeneralState, action) => {
   switch (action.type) {
+    case IS_LOADING:
+      return{
+        ...state,
+        isLoading: true
+      }
+      case NOT_LOADING:
+        return{
+          ...state,
+          isLoading: false
+        }
     case GET_USER_PLAYER_CARD:
       console.log(action.payload);
       return {
@@ -204,6 +216,12 @@ export const generalReducer = (state = initialGeneralState, action) => {
           equipment_slot2: action.payload.equipment_slot2 
         },
       };
+      case GET_CLASSES:
+        return{
+          ...state,
+          allClasses:action.payload
+        }
+
     default:
       return state;
   }

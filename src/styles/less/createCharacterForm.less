@@ -1,0 +1,167 @@
+.createCharacterContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .createCharacterDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    // border: 1px solid red;
+    width: 40%;
+
+    .createCharacterImgDiv {
+      margin-top: 4%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 20px;
+      border: 2px solid #d19900;
+      background-color: rgb(102, 102, 102);
+
+      img {
+        width: 75%;
+        height: auto;
+      }
+    }
+
+    h2 {
+      margin-top: 2%;
+      font-size: 2.5rem;
+    }
+
+    .lowerDiv {
+      margin-top: 2%;
+      border: 1px solid red;
+      width: 100%;
+      border: 2px groove black;
+      border-radius: 20px;
+      background: white;
+
+      .createCharacterStatsDiv {
+        display: flex;
+        //   border: 1px solid blue;
+        width: 100%;
+        justify-content: space-evenly;
+        font-size: 2.2rem;
+        font-weight: 600;
+        margin: 3% 0;
+        flex-direction: column;
+
+        &:before {
+          margin-bottom: 3%;
+          border-top: 10px solid black;
+          content: "";
+          display: block;
+        }
+
+        h4 {
+          justify-content: center;
+          align-self: center;
+          font-size: 1.8rem;
+
+          &:before {
+            margin-bottom: 15%;
+            border-top: 2px solid black;
+            content: "";
+            display: block;
+          }
+          &:after {
+            margin: 15% 0;
+            border-bottom: 2px solid black;
+            content: "";
+            display: block;
+          }
+        }
+
+        .stats {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+
+          p {
+            margin: 0 2%;
+          }
+        }
+      }
+
+      .createCharacterSkillsDiv {
+        display: flex;
+        //   border: 1px solid blue;
+        width: 100%;
+        justify-content: space-evenly;
+        font-size: 2.2rem;
+        font-weight: 600;
+        margin: 5% 0;
+        flex-direction: column;
+
+        h4 {
+          justify-content: center;
+          align-self: center;
+          font-size: 1.6rem;
+
+          &:before {
+            margin-bottom: 15%;
+            border-top: 2px solid black;
+            content: "";
+            display: block;
+          }
+          &:after {
+            margin: 15% 0;
+            border-bottom: 2px solid black;
+            content: "";
+            display: block;
+          }
+        }
+        .skills {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+
+          p {
+            margin: 0 2%;
+          }
+        }
+      }
+    }
+  }
+}
+
+.createCharacterFormDiv {
+  margin-top: 2%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  label {
+    display: flex;
+    flex-direction: column;
+    margin-top: 3% 0;
+    font-size: 1.8rem;
+    font-weight: 600;
+
+    .createCharacterInput {
+      margin-top: 1%;
+      border: 1px solid black;
+      border-radius: 8px;
+      width: 500px;
+      height: 35px;
+      outline: none;
+      appearance: none;
+      margin-bottom: 3%;
+      font-weight: 600;
+      font-size: 1.8rem;
+      &:focus {
+        outline: none;
+
+        box-shadow: 0 0 3pt 1pt #3086c2;
+        // outline: 2px solid #3086c2;
+        border-radius: 8px;
+        border-color: #3086c2;
+      }
+    }
+  }
+}

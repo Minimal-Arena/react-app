@@ -97,7 +97,7 @@ video {
   font-style: normal;
   font-weight: 300;
   font-display: swap;
-  src: url(https://fonts.gstatic.com/s/robotomono/v11/L0xuDF4xlVMF-BfR8bXMIhJHg45mwgGEFl0_gPqPQw.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/s/robotomono/v12/L0xuDF4xlVMF-BfR8bXMIhJHg45mwgGEFl0_gPqPQw.ttf) format('truetype');
 }
 * {
   font-family: "Roboto Mono", monospace;
@@ -370,6 +370,14 @@ nav a {
   border-radius: 8px;
   margin-right: 5%;
 }
+.loginFormContainer form .innerLoginFormDiv .loader {
+  margin-top: 8%;
+  align-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+}
 .loginFormContainer form .passwordDiv {
   display: flex;
   align-items: center;
@@ -378,6 +386,150 @@ nav a {
 .loginFormContainer form .passwordDiv .iconStyle {
   height: 30px;
   margin-left: 2%;
+}
+.createCharacterContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.createCharacterContainer .createCharacterDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+}
+.createCharacterContainer .createCharacterDiv .createCharacterImgDiv {
+  margin-top: 4%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  border: 2px solid #d19900;
+  background-color: #666666;
+}
+.createCharacterContainer .createCharacterDiv .createCharacterImgDiv img {
+  width: 75%;
+  height: auto;
+}
+.createCharacterContainer .createCharacterDiv h2 {
+  margin-top: 2%;
+  font-size: 2.5rem;
+}
+.createCharacterContainer .createCharacterDiv .lowerDiv {
+  margin-top: 2%;
+  border: 1px solid red;
+  width: 100%;
+  border: 2px groove black;
+  border-radius: 20px;
+  background: white;
+}
+.createCharacterContainer .createCharacterDiv .lowerDiv .createCharacterStatsDiv {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin: 3% 0;
+  flex-direction: column;
+}
+.createCharacterContainer .createCharacterDiv .lowerDiv .createCharacterStatsDiv:before {
+  margin-bottom: 3%;
+  border-top: 10px solid black;
+  content: "";
+  display: block;
+}
+.createCharacterContainer .createCharacterDiv .lowerDiv .createCharacterStatsDiv h4 {
+  justify-content: center;
+  align-self: center;
+  font-size: 1.8rem;
+}
+.createCharacterContainer .createCharacterDiv .lowerDiv .createCharacterStatsDiv h4:before {
+  margin-bottom: 15%;
+  border-top: 2px solid black;
+  content: "";
+  display: block;
+}
+.createCharacterContainer .createCharacterDiv .lowerDiv .createCharacterStatsDiv h4:after {
+  margin: 15% 0;
+  border-bottom: 2px solid black;
+  content: "";
+  display: block;
+}
+.createCharacterContainer .createCharacterDiv .lowerDiv .createCharacterStatsDiv .stats {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.createCharacterContainer .createCharacterDiv .lowerDiv .createCharacterStatsDiv .stats p {
+  margin: 0 2%;
+}
+.createCharacterContainer .createCharacterDiv .lowerDiv .createCharacterSkillsDiv {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin: 5% 0;
+  flex-direction: column;
+}
+.createCharacterContainer .createCharacterDiv .lowerDiv .createCharacterSkillsDiv h4 {
+  justify-content: center;
+  align-self: center;
+  font-size: 1.6rem;
+}
+.createCharacterContainer .createCharacterDiv .lowerDiv .createCharacterSkillsDiv h4:before {
+  margin-bottom: 15%;
+  border-top: 2px solid black;
+  content: "";
+  display: block;
+}
+.createCharacterContainer .createCharacterDiv .lowerDiv .createCharacterSkillsDiv h4:after {
+  margin: 15% 0;
+  border-bottom: 2px solid black;
+  content: "";
+  display: block;
+}
+.createCharacterContainer .createCharacterDiv .lowerDiv .createCharacterSkillsDiv .skills {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.createCharacterContainer .createCharacterDiv .lowerDiv .createCharacterSkillsDiv .skills p {
+  margin: 0 2%;
+}
+.createCharacterFormDiv {
+  margin-top: 2%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.createCharacterFormDiv label {
+  display: flex;
+  flex-direction: column;
+  margin-top: 3% 0;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+.createCharacterFormDiv label .createCharacterInput {
+  margin-top: 1%;
+  border: 1px solid black;
+  border-radius: 8px;
+  width: 500px;
+  height: 35px;
+  outline: none;
+  appearance: none;
+  margin-bottom: 3%;
+  font-weight: 600;
+  font-size: 1.8rem;
+}
+.createCharacterFormDiv label .createCharacterInput:focus {
+  outline: none;
+  box-shadow: 0 0 3pt 1pt #3086c2;
+  border-radius: 8px;
+  border-color: #3086c2;
 }
 .dashboard {
   display: flex;
