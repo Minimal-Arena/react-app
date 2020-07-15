@@ -9,8 +9,10 @@ import Canvas from "./components/game/canvas";
 import Nav from "./components/nav";
 import history from "./history";
 import PrivateRoute from "./utils/PrivateRoute";
-
+import CreateCharacter from "./components/dashboard/CreateCharacter";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 function App() {
+  const authed = window.localStorage.getItem('token')
   return (
     <div className="App">
       <Nav />
@@ -20,6 +22,9 @@ function App() {
         </Route>
         <Route path="/" exact>
           <Login />
+        </Route>
+        <Route path='/createCharacter' exact>
+        <CreateCharacter/>
         </Route>
         <PrivateRoute
           exact
