@@ -9,7 +9,7 @@ export const FriendList = () => {
     <div>
       {friendsArr.map((friend) => {
         if (friend.userStatus === true) {
-          return <FriendCard friend={friend} />;
+          return <FriendCard key={friend.id} friend={friend} />;
         }
       })}
     </div>
@@ -23,7 +23,7 @@ export const FriendListOffline = () => {
     <div>
       {friendsArr.map((friend) => {
         if (friend.userStatus === false) {
-          return <FriendCardOffline friend={friend} />;
+          return <FriendCardOffline key={friend.id} friend={friend} />;
         }
       })}
     </div>

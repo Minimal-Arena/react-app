@@ -1,27 +1,18 @@
-import React, { useEffect } from "react";
-
-import { useDispatch, useSelector } from "react-redux";
-import { getPlayerCardData } from "../../../actions";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import placeholderImage from "../../../assets/placeholder image.png";
-import { useState } from "react";
 import ProgressBar from "./ProgressBar";
+
 
 const PlayerCard = () => {
   const [percentage, setPercentage] = useState(0);
   const [manaPercentage, setManaPercentage] = useState(0);
   const [powerPercentage, setPowerPercentage] = useState(0);
 
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    const id = window.localStorage.getItem("user_id");
-
-    dispatch(getPlayerCardData(id));
-  }, [dispatch]);
-
   const playerData = useSelector(
     (state) => state.generalReducer.userPlayerCard
   );
+  const loadingCharacters = useSelector((state) => state.generalReducer.loadingCharacters);
 
   useEffect(() => {
     const result = playerData.health / 250;
@@ -35,13 +26,17 @@ const PlayerCard = () => {
     const powerResult = playerData.power / 300;
     const powerPercent = powerResult * 100;
     setPowerPercentage(powerPercent);
-  });
+  }, [playerData, loadingCharacters]);
 
-  return (
+  return loadingCharacters ? null : (
     <div className="playerCardContainer">
       <div className="playerCardDiv">
         <div className="playerCardImg">
-          <img src={placeholderImage} />
+          <img
+            src={playerData.class.asset_idle}
+            onError={(e) => (e.target.src = placeholderImage)}
+            alt={`A ${playerData.class.name}, named ${playerData.nickname}, idly waiting`}
+          />
         </div>
         <h6>{playerData.nickname}</h6>
         <div className="playerInfoDiv">
