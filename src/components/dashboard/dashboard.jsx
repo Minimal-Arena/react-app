@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import PlayerCard from "./playerScreen/PlayerCard";
-import PartyCard from "./playerScreen/PartyCard";
 import PartyList from "./playerScreen/PartyList";
 import { FriendList, FriendListOffline } from "./playerScreen/FriendList";
+import { getPlayerData } from "../../actions/index";
+const Dashboard = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const id = window.localStorage.getItem("user_id");
 
-const Dashboard = (props) => {
+    dispatch(getPlayerData(id));
+  }, [dispatch]);
+
   return (
     <div className="dashboard">
       <div className="playerStatsDiv">
