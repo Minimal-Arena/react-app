@@ -1,7 +1,7 @@
 import React from "react";
 
 import "./styles/css/index.css";
-import { Router, Route, Link } from "react-router-dom";
+import { Router, Route } from "react-router-dom";
 import Dashboard from "./components/dashboard/dashboard";
 import Login from "./components/login-signup/login";
 import Signup from "./components/login-signup/signup";
@@ -10,21 +10,21 @@ import Nav from "./components/nav";
 import history from "./history";
 import PrivateRoute from "./utils/PrivateRoute";
 import CreateCharacter from "./components/dashboard/CreateCharacter";
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 function App() {
-  const authed = window.localStorage.getItem('token')
+  const authed = window.localStorage.getItem("token");
   return (
-    <div className="App">
-      <Nav />
-      <Router history={history}>
+    <Router history={history}>
+      <div className="App">
+        <Nav />
         <Route path="/signup">
           <Signup />
         </Route>
         <Route path="/" exact>
           <Login />
         </Route>
-        <Route path='/createCharacter' exact>
-        <CreateCharacter/>
+        <Route path="/createCharacter" exact>
+          <CreateCharacter />
         </Route>
         <PrivateRoute
           exact
@@ -32,8 +32,8 @@ function App() {
           component={Dashboard}
         ></PrivateRoute>
         <PrivateRoute exact path="/game" component={Canvas}></PrivateRoute>
-      </Router>
-    </div>
+      </div>
+    </Router>
   );
 }
 
