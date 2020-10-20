@@ -1,9 +1,8 @@
-import React, { useEffect } from "react";
-
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import placeholderImage from "../../../assets/placeholder image.png";
-import { useState } from "react";
 import ProgressBar from "./ProgressBar";
+
 
 const PlayerCard = () => {
   const [percentage, setPercentage] = useState(0);
@@ -34,7 +33,7 @@ const PlayerCard = () => {
       <div className="playerCardDiv">
         <div className="playerCardImg">
           <img
-            src={playerData ? playerData.class.asset_idle : null}
+            src={playerData.class.asset_idle}
             onError={(e) => (e.target.src = placeholderImage)}
             alt={`A ${playerData.class.name}, named ${playerData.nickname}, idly waiting`}
           />

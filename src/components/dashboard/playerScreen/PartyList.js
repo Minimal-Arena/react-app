@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import PartyCard from "./PartyCard";
+import CreateCharacter from './CreateCharacter';
 
 // const playerDataArr = [
 //   {
@@ -395,6 +396,7 @@ const PartyList = () => {
   console.log(playerDataArr);
   return (
     <div className="partyListDiv">
+      <CreateCharacter />
       {playerDataArr.map((hero) => (
         <PartyCard key={hero.character_id} hero={hero}  />
       ))}
