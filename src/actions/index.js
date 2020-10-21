@@ -17,6 +17,8 @@ export const GET_CLASSES = "GET_CLASSES";
 /*Success Cases */
 export const GET_USER_CHARACTERS = "GET_USER_CHARACTERS";
 
+export const CREATE_CHARACTER = "CREATE_CHARACTER";
+
 /*Fail Cases */
 export const NOT_LOADING = "NOT_LOADING";
 
@@ -81,3 +83,17 @@ export const getAllClasses = () => (dispatch) => {
     })
     .catch((err) => console.log("Error fetching classes", err));
 };
+
+export const createNewCharacter = (character) => (dispatch) => {
+  console.log(character)
+  const newCharacter = {
+    nickname: character.nickname,
+    class_id: character.class,
+    user_id: window.localStorage.getItem("user_id")
+  }
+  
+  axiosWithAuth()
+    .post("/api/game/character", newCharacter)
+    .then(res => console.log(res.data))
+    .catch(err => console.log("There was an error creating the new character", err))
+}

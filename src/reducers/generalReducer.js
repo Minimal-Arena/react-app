@@ -5,7 +5,8 @@ import {
   NOT_LOADING,
   GET_CLASSES,
   GET_USER_CHARACTERS,
-  NO_CHARACTERS
+  NO_CHARACTERS,
+  CREATE_CHARACTER
 } from "../actions";
 
 const initialGeneralState = {
@@ -93,6 +94,13 @@ export const generalReducer = (state = initialGeneralState, action) => {
         ...state,
         allClasses: action.payload,
       };
+    case CREATE_CHARACTER:
+      return {
+        ...state,
+        characters: [...state.characters, action.payload],
+        userPlayerCard: action.payload,
+        loadingCharacters: false
+      }
 
     default:
       return state;

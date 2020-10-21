@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Stage from "./stage";
 import HUD from "./hud";
 import PlayerInput from "./playerInput";
@@ -7,11 +7,7 @@ import { setCharacter } from "../../actions/gameActions";
 
 const Canvas = () => {
   const gameState = useSelector((state) => state.gameReducer.game);
-  const selectedCharacter = useSelector(
-    (state) => state.generalReducer.userPlayerCard
-  );
-  const dispatch = useDispatch();
-  dispatch(setCharacter(selectedCharacter));
+
 
   return (
     <div className="canvas">

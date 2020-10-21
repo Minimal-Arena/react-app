@@ -1,11 +1,16 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import PlayerCard from "./playerScreen/PlayerCard";
 import PartyList from "./playerScreen/PartyList";
 import { FriendList, FriendListOffline } from "./playerScreen/FriendList";
 import { getPlayerData } from "../../actions/index";
+import { setCharacter } from "../../actions/gameActions";
 const Dashboard = () => {
+  const selectedCharacter = useSelector(
+    (state) => state.generalReducer.userPlayerCard
+  );
   const dispatch = useDispatch();
+
   useEffect(() => {
     const id = window.localStorage.getItem("user_id");
 
