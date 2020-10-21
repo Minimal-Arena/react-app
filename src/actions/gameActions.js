@@ -1,90 +1,97 @@
-export const increaseXP = amount => {
-	return {
-		type: "INCREASE_XP",
-		payload: amount,
-	};
+export const increaseXP = (amount) => {
+  return {
+    type: "INCREASE_XP",
+    payload: amount,
+  };
 };
 
 export const levelUp = () => {
-	return {
-		type: "LEVEL_UP",
-		payload: "",
-	};
+  return {
+    type: "LEVEL_UP",
+    payload: "",
+  };
 };
 
-export const hitEnemy = amount => {
-	return {
-		type: "ENEMY_HIT",
-		payload: amount,
-	};
+export const hitEnemy = (amount) => {
+  return {
+    type: "ENEMY_HIT",
+    payload: amount,
+  };
 };
 
 export const attackSelected = (mana) => {
-	return {
-		type: "IS_ATTACKING",
-		payload: mana,
-	};
+  return {
+    type: "IS_ATTACKING",
+    payload: mana,
+  };
 };
 
 export const removeDamageClass = () => {
-	return {
-		type: "REMOVE_DAMAGE_ENEMY",
-		payload: "",
-	};
+  return {
+    type: "REMOVE_DAMAGE_ENEMY",
+    payload: "",
+  };
 };
 
 export const removeDamagePlayer = () => {
-	return {
-		type: "REMOVE_DAMAGE_PLAYER",
-		payload: "",
-	}
-}
+  return {
+    type: "REMOVE_DAMAGE_PLAYER",
+    payload: "",
+  };
+};
 
 export const setEnemyTurn = (amount) => {
-	return {
-		type: "CPU_ATTACK",
-		payload: amount,
-	};
+  return {
+    type: "CPU_ATTACK",
+    payload: amount,
+  };
 };
 
 export const switchTurn = (turn) => {
-	return {
-		type: "SWITCH_TURN",
-		payload: turn,
-	}
-}
+  return {
+    type: "SWITCH_TURN",
+    payload: turn,
+  };
+};
 
 export const healPlayer = (basePower) => {
-	return {
-		type: "HEALING",
-		payload: basePower,
-	}
-}
+  return {
+    type: "HEALING",
+    payload: basePower,
+  };
+};
 
 export const removeSkillState = (mana) => {
-	return {
-		type: "REMOVE_SKILL_STATE",
-		payload: mana,
-	}
-}
+  return {
+    type: "REMOVE_SKILL_STATE",
+    payload: mana,
+  };
+};
 
 export const win = (xp) => {
-	return {
-		type: "WIN",
-		payload: xp
-	}
-}
+  return {
+    type: "WIN",
+    payload: xp,
+  };
+};
 
 export const lose = () => {
-	return {
-		type: "LOSE",
-		payload: ""
-	}
-}
+  return {
+    type: "LOSE",
+    payload: "",
+  };
+};
 
 export const setEnemyDead = () => {
-	return {
-		type: "ENEMY_DEFEATED",
-		payload: ""
-	}
-}
+  return {
+    type: "ENEMY_DEFEATED",
+    payload: "",
+  };
+};
+
+export const setCharacter = (character) => {
+  return {
+    type: "SET_CHARACTER",
+    payload: character,
+  };
+};

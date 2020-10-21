@@ -1,19 +1,21 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import placeholderImage from "../../../assets/placeholder image.png";
 import ProgressBar from "./ProgressBar";
-
+import { setCharacter } from "../../../actions/gameActions";
 
 const PlayerCard = () => {
   const [percentage, setPercentage] = useState(0);
   const [manaPercentage, setManaPercentage] = useState(0);
   const [powerPercentage, setPowerPercentage] = useState(0);
-
+  const dispatch = useDispatch();
   const playerData = useSelector(
     (state) => state.generalReducer.userPlayerCard
   );
   const loadingCharacters = useSelector((state) => state.generalReducer.loadingCharacters);
-
+    if (!loadingCharacters) {
+      dispatch(setCharacter(playerData))
+    }
   useEffect(() => {
     const result = playerData.health / 250;
     const newPercent = result * 100;

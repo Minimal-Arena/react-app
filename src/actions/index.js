@@ -1,5 +1,4 @@
 import axios from "axios";
-import history from "../history";
 import axiosWithAuth from "../utils/axiosWithAuth";
 import { redirect } from "../utils/helperFunctions";
 
@@ -55,15 +54,13 @@ export const loginUser = (userInfo) => (dispatch) => {
     })
 
     .catch((err) => console.log(err));
-
-  // history.push("/dashboard")
 };
 
 export const getPlayerData = (user_id) => (dispatch) => {
   axiosWithAuth()
     .get(`/api/game/character/user/${user_id}`)
     .then((res) => {
-      console.log(res.data);
+      // console.log(res.data);
       if (res.data.length) {
         dispatch({ type: GET_USER_CHARACTERS, payload: res.data });
       } else {
@@ -81,5 +78,6 @@ export const getAllClasses = () => (dispatch) => {
     .get(`/api/game/class`)
     .then((res) => {
       dispatch({ type: GET_CLASSES, payload: res.data });
-    });
+    })
+    .catch((err) => console.log("Error fetching classes", err));
 };

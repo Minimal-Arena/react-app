@@ -6,7 +6,7 @@ export const axiosWithAuth = () => {
     headers: {
       authorization: token,
     },
-    baseURL: "https://minimal-staging.herokuapp.com",
+    baseURL: "https://minimal-arena.herokuapp.com",
   });
 };
 export default axiosWithAuth;

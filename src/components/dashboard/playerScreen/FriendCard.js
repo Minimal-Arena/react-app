@@ -14,7 +14,7 @@ export const FriendCard = ({ friend }) => {
           alt={`${friend.username} icon`}
         />
 
-        <p>{friend.username}</p>
+        <p style={{width: "70%", wordWrap: "break-word"}}>{friend.username}</p>
       </div>
     </div>
   );
@@ -32,7 +32,7 @@ export const FriendCardOffline = ({ friend }) => {
           alt={`${friend.username} icon`}
         />
 
-        <p>{friend.username}</p>
+        <p style={{width: "70%", wordWrap: "break-word"}}>{friend.username}</p>
       </div>
     </div>
   );
