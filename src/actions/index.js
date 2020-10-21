@@ -67,7 +67,6 @@ export const getPlayerData = (info) => (dispatch) => {
     .get(`/api/game/character/user/${info.id}`)
     .then((res) => {
       if (res.data.length) {
-        console.log(res.data);
         dispatch({
           type: GET_USER_CHARACTERS,
           payload: {

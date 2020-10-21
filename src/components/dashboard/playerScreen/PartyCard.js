@@ -79,7 +79,6 @@ const PartyCard = ({
     e.preventDefault();
     dispatch(selectCharacter(hero));
   };
-  console.log(hero);
 
   return (
     <div
