@@ -7,11 +7,13 @@ import { setCharacter } from "../../actions/gameActions";
 
 const Canvas = () => {
   const gameState = useSelector((state) => state.gameReducer.game);
-  const selectedCharacter = useSelector(
+  const playerSelection = useSelector(
     (state) => state.generalReducer.userPlayerCard
   );
   const dispatch = useDispatch();
-  dispatch(setCharacter(selectedCharacter));
+  useEffect(() => {
+    dispatch(setCharacter(playerSelection));
+  }, [playerSelection]);
 
   return (
     <div className="canvas">

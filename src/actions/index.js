@@ -17,10 +17,16 @@ export const GET_CLASSES = "GET_CLASSES";
 /*Success Cases */
 export const GET_USER_CHARACTERS = "GET_USER_CHARACTERS";
 
+export const CREATE_CHARACTER = "CREATE_CHARACTER";
+
 /*Fail Cases */
 export const NOT_LOADING = "NOT_LOADING";
 
 export const NO_CHARACTERS = "NO_CHARACTERS";
+
+/*  Misc Cases  */
+export const SELECT_CHARACTER = "SELECT_CHARACTER";
+
 /***********************/
 
 /****** API Actions ******/
@@ -56,13 +62,42 @@ export const loginUser = (userInfo) => (dispatch) => {
     .catch((err) => console.log(err));
 };
 
-export const getPlayerData = (user_id) => (dispatch) => {
+export const getPlayerData = (info) => (dispatch) => {
+  axiosWithAuth()
+    .get(`/api/game/character/user/${info.id}`)
+    .then((res) => {
+      if (res.data.length) {
+        console.log(res.data);
+        dispatch({
+          type: GET_USER_CHARACTERS,
+          payload: {
+            characters: res.data,
+            selectedCharacter: info.selection,
+          },
+        });
+      } else {
+        dispatch({ type: NO_CHARACTERS });
+      }
+    });
+};
+
+export const getInitialPlayerData = (user_id) => (dispatch) => {
   axiosWithAuth()
     .get(`/api/game/character/user/${user_id}`)
     .then((res) => {
-      // console.log(res.data);
       if (res.data.length) {
-        dispatch({ type: GET_USER_CHARACTERS, payload: res.data });
+        console.log(res.data);
+        dispatch({
+          type: GET_USER_CHARACTERS,
+          payload: {
+            characters: res.data,
+            selectedCharacter: res.data[0],
+          },
+        });
+        window.localStorage.setItem(
+          "selectedCharacter",
+          JSON.stringify(res.data[0])
+        );
       } else {
         dispatch({ type: NO_CHARACTERS });
       }
@@ -80,4 +115,32 @@ export const getAllClasses = () => (dispatch) => {
       dispatch({ type: GET_CLASSES, payload: res.data });
     })
     .catch((err) => console.log("Error fetching classes", err));
+};
+
+export const createNewCharacter = (character) => (dispatch) => {
+  console.log(character);
+  const newCharacter = {
+    nickname: character.nickname,
+    class_id: character.class,
+    user_id: window.localStorage.getItem("user_id"),
+  };
+
+  axiosWithAuth()
+    .post("/api/game/character", newCharacter)
+    .then((res) => {
+      window.localStorage.setItem(
+        "selectedCharacter",
+        JSON.stringify(res.data)
+      );
+      dispatch({ type: CREATE_CHARACTER, payload: res.data });
+      redirect("/dashboard")
+    })
+    .catch((err) =>
+      console.log("There was an error creating the new character", err)
+    );
+};
+
+export const selectCharacter = (selection) => (dispatch) => {
+  window.localStorage.setItem("selectedCharacter", JSON.stringify(selection));
+  dispatch({ type: SELECT_CHARACTER, payload: selection });
 };

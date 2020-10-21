@@ -12,6 +12,7 @@ const Nav = () => {
     window.localStorage.removeItem("token");
     window.localStorage.removeItem("user_id");
     window.localStorage.removeItem("username");
+    window.localStorage.removeItem("selectedCharacter")
     redirect("/");
   };
   return (

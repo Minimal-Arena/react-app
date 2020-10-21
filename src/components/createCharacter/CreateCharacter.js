@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllClasses } from "../../actions";
+import { getAllClasses, createNewCharacter } from "../../actions";
+import { redirect } from "../../utils/helperFunctions";
 const initialCharacterValues = {
   nickname: "",
   class: "",
@@ -29,7 +30,10 @@ const CreateCharacter = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(createCharacterValues);
+    if (createCharacterValues.class.length >= 1) {
+      dispatch(createNewCharacter(createCharacterValues));
+      
+    }
   };
 
   console.log(classData);
@@ -42,7 +46,6 @@ const CreateCharacter = () => {
           style={{ justifyContent: "center" }}
         >
           <label>
-            {" "}
             Enter nickname
             <input
               className="createCharacterInput"
@@ -60,13 +63,13 @@ const CreateCharacter = () => {
             onChange={handleChanges}
           >
             <option>Selecet A Class</option>
-            <option value="0">Wizard</option>
-            <option value="1">Brute</option>
-            <option value="2">Rouge</option>
+            <option value="1">Wizard</option>
+            <option value="2">Brute</option>
+            <option value="3">Rouge</option>
           </select>
         </div>
         {classData.map((hero, index) => {
-          if (index === parseInt(createCharacterValues.class)) {
+          if (hero.id === parseInt(createCharacterValues.class)) {
             return (
               <div key={hero.id} className="createCharacterContainer">
                 <div

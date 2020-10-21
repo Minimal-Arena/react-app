@@ -5,7 +5,9 @@ import {
   NOT_LOADING,
   GET_CLASSES,
   GET_USER_CHARACTERS,
-  NO_CHARACTERS
+  NO_CHARACTERS,
+  CREATE_CHARACTER,
+  SELECT_CHARACTER
 } from "../actions";
 
 const initialGeneralState = {
@@ -79,8 +81,8 @@ export const generalReducer = (state = initialGeneralState, action) => {
     case GET_USER_CHARACTERS:
       return {
         ...state,
-        characters: [...action.payload],
-        userPlayerCard: action.payload[0],
+        characters: [...action.payload.characters],
+        userPlayerCard: action.payload.selectedCharacter,
         loadingCharacters: false,
       };
     case NO_CHARACTERS:
@@ -93,7 +95,18 @@ export const generalReducer = (state = initialGeneralState, action) => {
         ...state,
         allClasses: action.payload,
       };
-
+    case CREATE_CHARACTER:
+      return {
+        ...state,
+        characters: [...state.characters, action.payload],
+        userPlayerCard: action.payload,
+        loadingCharacters: false
+      }
+      case SELECT_CHARACTER:
+        return {
+          ...state,
+          userPlayerCard: action.payload
+        }
     default:
       return state;
   }
