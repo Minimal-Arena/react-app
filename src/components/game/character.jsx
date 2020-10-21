@@ -7,7 +7,7 @@ import charDamage from "../../assets/Wizard/damaged.gif";
 import { useSelector, useDispatch } from "react-redux";
 import { lose } from "../../actions/gameActions";
 
-const Character = props => {
+const Character = () => {
     const stats = useSelector(state => state.gameReducer);
     const [animation, setAnimation] = useState(char);
 

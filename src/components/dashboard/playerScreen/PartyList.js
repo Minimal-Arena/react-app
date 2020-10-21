@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
+import { useSelector } from "react-redux";
 import PartyCard from "./PartyCard";
-import CreateCharacter from './CreateCharacter';
+import CreateCharacterAction from "../../createCharacter/CreateCharacterAction";
 
 // const playerDataArr = [
 //   {
@@ -389,16 +389,11 @@ import CreateCharacter from './CreateCharacter';
 
 const PartyList = () => {
   const playerDataArr = useSelector((state) => state.generalReducer.characters);
-
-
-  
-
-  console.log(playerDataArr);
   return (
     <div className="partyListDiv">
-      <CreateCharacter />
+      <CreateCharacterAction />
       {playerDataArr.map((hero) => (
-        <PartyCard key={hero.character_id} hero={hero}  />
+        <PartyCard key={hero.character_id} hero={hero} />
       ))}
     </div>
   );

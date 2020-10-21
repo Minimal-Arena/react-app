@@ -12,7 +12,7 @@ import {
 } from "../../actions/gameActions";
 import { useEffect } from "react";
 
-const PlayerInput = (props) => {
+const PlayerInput = () => {
   const stats = useSelector((state) => state.gameReducer);
   const turn = useSelector((state) => state.gameReducer.current_turn);
   const dispatch = useDispatch();
