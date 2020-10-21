@@ -133,6 +133,7 @@ export const createNewCharacter = (character) => (dispatch) => {
         JSON.stringify(res.data)
       );
       dispatch({ type: CREATE_CHARACTER, payload: res.data });
+      redirect("/dashboard")
     })
     .catch((err) =>
       console.log("There was an error creating the new character", err)

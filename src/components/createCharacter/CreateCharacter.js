@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllClasses, createNewCharacter } from "../../actions";
+import { redirect } from "../../utils/helperFunctions";
 const initialCharacterValues = {
   nickname: "",
   class: "",
@@ -31,6 +32,7 @@ const CreateCharacter = () => {
     e.preventDefault();
     if (createCharacterValues.class.length >= 1) {
       dispatch(createNewCharacter(createCharacterValues));
+      
     }
   };
 
