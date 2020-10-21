@@ -10,7 +10,7 @@ import { lose } from "../../actions/gameActions";
 const Character = () => {
     const stats = useSelector(state => state.gameReducer);
     const [animation, setAnimation] = useState(char);
-
+    console.log(stats)
     const dispatch = useDispatch();
 
     useEffect(() => {

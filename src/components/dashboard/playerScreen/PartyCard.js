@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { selectCharacter } from "../../../actions/index";
 import placeholderImage from "../../../assets/placeholder image.png";
 
 const PartyCard = ({
   hero,
-  draggable,
-  onDragStart,
-  onDragOver,
-  onDrop,
-  onDragLeave,
 }) => {
   const skill_slot = [];
+  const equipment_slot = [];
+  const consumable_slot = [];
   if (hero.skill_slot1) {
     skill_slot.push(hero.skill_slot1.name);
   }
@@ -20,7 +18,6 @@ const PartyCard = ({
   if (hero.skill_slot3) {
     skill_slot.push(hero.skill_slot3.name);
   }
-  const equipment_slot = [];
   if (hero.equipment_slot1) {
     equipment_slot.push(hero.equipment_slot1.name);
   }
@@ -30,7 +27,6 @@ const PartyCard = ({
   if (hero.equipment_slot3) {
     equipment_slot.push(hero.equipment_slot3.name);
   }
-  const consumable_slot = [];
   if (hero.consumable_slot1) {
     consumable_slot.push(hero.consumable_slot1.name);
   }
@@ -43,10 +39,8 @@ const PartyCard = ({
   const options = ["Skills", "Equipment", "Consumables"];
   const [listName, setListName] = useState("skills");
   const [list, setList] = useState(skill_slot);
-  const changeList = (e) => {
-    e.preventDefault();
-    setListName(e.target.value);
-  };
+  const [hover, setHover] = useState(false);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (listName === "Skills") {
@@ -58,13 +52,46 @@ const PartyCard = ({
     }
   }, [listName]);
 
+  const changeList = (e) => {
+    e.preventDefault();
+    setListName(e.target.value);
+  };
+
+  const toggleHover = (e) => {
+    e.preventDefault();
+    setHover(!hover);
+  };
+
+  const style = () => {
+    if (hover) {
+      return {
+        border: "2px solid green",
+        cursor: "pointer",
+      };
+    } else {
+      return {
+        margin: "1.55%",
+      };
+    }
+  };
+
+  const handleSelect = (e) => {
+    e.preventDefault();
+    dispatch(selectCharacter(hero));
+  };
   console.log(hero);
 
   return (
-    <div className="partyCardContainer ">
+    <div
+      className="partyCardContainer "
+      style={style()}
+      onMouseEnter={toggleHover}
+      onMouseLeave={toggleHover}
+      onClick={handleSelect}
+    >
       <img
         src={hero.class.asset_idle}
-        onError={(e) => (e.target.src = "https://i.pravatar.cc")}
+        onError={(e) => (e.target.src = placeholderImage)}
         alt={`A ${hero.class.name}, named ${hero.nickname}, idly waiting.`}
       />
 
@@ -77,10 +104,10 @@ const PartyCard = ({
 
       {/* TODO: RE-IMPLEMENT THESE FIELDS AS Equipment and Consumables are added to the game */}
       <div className="data">
-        <select style={{fontWeight: "bold"}} onChange={changeList}>
+        <select style={{ fontWeight: "bold" }} onChange={changeList}>
           {options.map((optionItem, i) => {
             return (
-              <option  key={i} value={optionItem}>
+              <option key={i} value={optionItem}>
                 {optionItem}
               </option>
             );
@@ -92,31 +119,9 @@ const PartyCard = ({
             return <p key={i}>{item}</p>;
           })
         ) : (
-          <p >No {listName} added</p>
+          <p>No {listName} added</p>
         )}
       </div>
-      {/* <div className="data">
-        <details>
-          <summary>
-            <h4>Skills</h4>
-          </summary>
-          <p>{hero.skill_slot1 ? hero.skill_slot1.name : null}</p>
-          <p>{hero.skill_slot2 ? hero.skill_slot2.name : null}</p>
-          <p>{hero.skill_slot3 ? hero.skill_slot3.name : null}</p>
-        </details>
-        <details>
-          <summary>Equipment</summary>
-          <p>{hero.equipment_slot1 ? hero.equipment_slot1.name : null}</p>
-          <p>{hero.equipment_slot2 ? hero.equipment_slot2.name : null}</p>
-          <p>{hero.equipment_slot3 ? hero.equipment_slot3.name : null}</p>
-        </details>
-        <details>
-          <summary>Consumables</summary>
-          <p>{hero.consumable_slot1 ? hero.consumable_slot1.name : null}</p>
-          <p>{hero.consumable_slot2 ? hero.consumable_slot2.name : null}</p>
-          <p>{hero.consumable_slot3 ? hero.consumable_slot3.name : null}</p>
-        </details>
-      </div> */}
     </div>
   );
 };

@@ -3,18 +3,20 @@ import { useSelector, useDispatch } from "react-redux";
 import PlayerCard from "./playerScreen/PlayerCard";
 import PartyList from "./playerScreen/PartyList";
 import { FriendList, FriendListOffline } from "./playerScreen/FriendList";
-import { getPlayerData } from "../../actions/index";
+import { getInitialPlayerData, getPlayerData } from "../../actions/index";
 import { setCharacter } from "../../actions/gameActions";
 const Dashboard = () => {
-  const selectedCharacter = useSelector(
-    (state) => state.generalReducer.userPlayerCard
-  );
   const dispatch = useDispatch();
 
   useEffect(() => {
     const id = window.localStorage.getItem("user_id");
-
-    dispatch(getPlayerData(id));
+    const selection = window.localStorage.getItem("selectedCharacter");
+    if (!selection) {
+      dispatch(getInitialPlayerData(id));
+    } else {
+      console.log(JSON.parse(selection))
+      dispatch(getPlayerData({ id, selection: JSON.parse(selection) }));
+    }
   }, [dispatch]);
 
   return (
